@@ -19,55 +19,82 @@
 <body>
 	<div class="wrapper">
 		<header>
-			<h1>メモリスト</h1>
-			<a href="./add.jsp">メモ追加</a>
-			<form action="SelectMemoServlet" method="POST">
-					<p>
-						メモタイトル<input type="text" name="title" >
-						<input type="submit" value="検索">
-					</p>
-			</form>
-			<p>${ mes }</p>
+			<h1><img src="./images/logo.png"></h1>
+			<div class="add-icon">
+				<a href="./add.jsp" class="header-add">+</a>
+			</div>
 		</header>
 		<div class="container">
-			<div class="side col-xs-2">
-				<p>pone</p>
-			</div>
-			<div class="main col-xs-10">
-				<table>
-					<tr>
-						<th>ID</th>
-						<th>タイトル</th>
-						<th>カテゴリ</th>
-						<th>メモ内容</th>
-						<th>日付</th>
-					</tr>
-					<c:forEach var="m" items="${ list }">
-					<tr>
-						<td>${ m.id }</td>
-						<td>${ m.title }</td>
-						<td>${ m.category }</td>
-						<td>${ m.memo }</td>
-						<td>${ m.posttime }</td>
-						<td>
-							<form action="./update.jsp" method="POST">
-								<input type="hidden" name="id" value="${ m.id }">
-								<input type="hidden" name="title" value="${ m.title }">
+			<div class="row">
+				<div class="side col-xs-2">
+					<h2>Categories</h2>
+					<div class="categorylist">
+						<a href="SelectMemoServlet">▶All</a>
+					</div>
+					<c:forEach var="m" items="${ categoryList }">
+						<div class="categorylist">
+							<form name="${ m.category }" action="SelectMemoServlet" method="POST">
 								<input type="hidden" name="category" value="${ m.category }">
-								<input type="hidden" name="memo" value="${ m.memo }">
-								<input type="hidden" name="posttime" value="${ m.posttime }">
-								<input type="submit" value="更新">
+								<a href="#" onclick="javascript:document.${ m.category }.submit()">▶${ m.category }</a>
 							</form>
-						</td>
-						<td>
-							<form action="DeleteMemoServlet" method="POST">
-								<input type="hidden" name="id" value=${ m.id }>
-								<input type="submit" value="削除">
-							</form>
-						</td>
-					</tr>
+						</div>
 					</c:forEach>
-				</table>
+				</div>
+				<div class="main col-xs-10">
+
+					<!-- memoList -->
+					<h2 class="page-title">Memos</h2>
+					<div class="row">
+						<c:forEach var="m" items="${ list }">
+							<div class="col-xs-12 col-sm-6 m-20">
+								<div class="memo">
+									<div class="memo-header">
+										<div class="title">
+											${ m.title }
+										</div>
+										<c:if test="${ m.category != null }">
+											<div class="category">
+												${ m.category }
+											</div>
+										</c:if>
+										<div class="delete">
+											<form action="DeleteMemoServlet" method="POST">
+												<input type="hidden" name="id" value="${ m.id }">
+												<input type="submit" value="削除">
+											</form>
+										</div>
+										<div class="update">
+											<form action="./update.jsp" method="POST">
+												<input type="hidden" name="id" value="${ m.id }">
+												<input type="hidden" name="title" value="${ m.title }">
+												<input type="hidden" name="category" value="${ m.category }">
+												<input type="hidden" name="memo" value="${ m.memo }">
+												<input type="hidden" name="posttime" value="${ m.posttime }">
+												<input type="submit" value="編集">
+											</form>
+										</div>
+									</div>
+									<div class="msg">
+										${ m.memo }
+									</div>
+									<div class="posttime">
+										${ m.posttime }
+									</div>
+								</div>
+							</div>
+						</c:forEach>
+						
+						<!-- add memo -->
+						<div class="col-xs-12 col-sm-6 m-20">
+							<div class="memo">
+								<div class="add-memo">
+									<a href="./add.jsp">+</a>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

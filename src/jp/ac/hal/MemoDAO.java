@@ -42,13 +42,13 @@ public class MemoDAO {
 		return list;
 	}
 	
-	public ArrayList<Memo> select(String title){
+	public ArrayList<Memo> select(String category){
 		ArrayList<Memo> list = new ArrayList<Memo>();
 		try(
 				Connection con = getConnection();
-				PreparedStatement ps = con.prepareStatement("select * from kadai03 where title like ? ");
+				PreparedStatement ps = con.prepareStatement("select * from kadai03 where category = ?");
 				){
-			ps.setString(1, "%" + title + "%");
+			ps.setString(1, category);
 			ResultSet rs = ps.executeQuery();
 			
 			while(rs.next()){
@@ -126,5 +126,28 @@ public class MemoDAO {
 			e.printStackTrace();
 		}
 		return count;
+	}
+	
+	public ArrayList<Memo> selectCategory(){
+		ArrayList<Memo> categoryList = new ArrayList<Memo>();
+		
+		try(
+				Connection con = getConnection();
+				PreparedStatement ps = con.prepareStatement("select distinct category from kadai03 where category is not null");
+				){
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()){
+				Memo m = new Memo();
+				m.setCategory(rs.getString("category"));
+				
+				categoryList.add(m);
+			}
+		}catch(SQLException e){
+			e.printStackTrace();
+		}catch(ClassNotFoundException e1){
+			e1.printStackTrace();
+		}
+		return categoryList;
 	}
 }

@@ -13,6 +13,7 @@
 	<p>${ mes }${ titleErr }${ memoErr }</p>
 		<form action="AddMemoServlet" method="POST">
 		<p>タイトル <input type="text" name="title"></p>
+		<p>カテゴリ<input type="text" name="category"></p>
 		<p>メモ <input type="text" name="memo"></p>
 		<input type="submit" value="追加">
 	</form>

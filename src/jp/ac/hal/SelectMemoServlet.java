@@ -33,8 +33,10 @@ public class SelectMemoServlet extends HttpServlet {
 		
 		MemoDAO dao = new MemoDAO();
 		ArrayList<Memo>list = dao.select();
+		ArrayList<Memo>categoryList = dao.selectCategory();
 		
 		request.setAttribute("list", list);
+		request.setAttribute("categoryList", categoryList);
 		request.getRequestDispatcher("index.jsp").forward(request,response);
 	}
 
@@ -45,11 +47,13 @@ public class SelectMemoServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
 		
-		String title = request.getParameter("title");
+		String category = request.getParameter("category");
 		MemoDAO dao = new MemoDAO();
-		ArrayList<Memo> list = dao.select(title);
+		ArrayList<Memo> list = dao.select(category);
+		ArrayList<Memo>categoryList = dao.selectCategory();
 		
 		request.setAttribute("list", list);
+		request.setAttribute("categoryList", categoryList);
 		request.getRequestDispatcher("index.jsp").forward(request,response);
 	}
 }

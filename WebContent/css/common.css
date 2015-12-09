@@ -5,35 +5,152 @@ body, h1, h2, p, table, form {
 	padding: 0;
 }
 
-html, body {
-	height: 100%;
+body {
+	font-family: ü‡ÉSÉVÉbÉNëÃ, 'Yu Gothic', YuGothic, 'ÉqÉâÉMÉmäpÉSÉVÉbÉN Pro', 'Hiragino Kaku Gothic Pro', ÉÅÉCÉäÉI, Meiryo, Osaka, 'ÇlÇr ÇoÉSÉVÉbÉN', 'MS PGothic', sans-serif;font-family: 'Hiragino Kaku Gothic ProN', 'ÉqÉâÉMÉmäpÉS ProN W3', Meiryo, ÉÅÉCÉäÉI, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
 }
 
-.wrapper {
-	height: 100%;
+h2 {
+	font-size: 26px;
+	margin: 15px 0;
 }
 
 header {
+	height: 70px;
 	color: #f5f5f5;
-	background: #A10800;
+	background: #bf1c13;
+}
+
+h1 {
+	float: left;
+	margin-left: 20px;
+}
+
+.add-icon {
+	margin: 15px 60px;
+	width: 40px;
+	height: 40px;
+	border-radius: 20px; 
+	background: #ffffff;
+	color: #bf1c13;
+	font-size: 40px;
+	font-weight: bold;
+	line-height: 40px;
+	text-align: center;
+	float: right;
+}
+
+a.header-add {
+	color: #bf1c13;
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: none;
 }
 
 .container {
-	margin: 0;
-	padding: 0;
-	height: 100%;
+	background: #fffcfc;
+	margin: 0px;
+	width: 100%;
+	background: url(../images/bgimage.png);
 }
+
+/* sidebar */
 
 .side {
-	background: #F4F5F8;
-	height: 100%;
+	color: #fffafa;
+	background: #e94d46;
+	height: 900px;
+	float: left;
 }
 
-.main {
+.categorylist {
+	font-size: 16px;
+	margin: 15px 5px;
+	border-bottom: 1px solid #fcfcfc;
+}
 
+.side a {
+	color: #fcfcfc;
+}
+
+.side a:hover {
+	color: #6a6a6a;
+}
+
+/* memo content */
+.page-title {
+	font-size: 36px;
+	font-weight: bold;
+	color: #bf1c13;
 }
 
 .memo {
-	height: 100px;
-	border: 1px solid #A10000;
+	background-color: rgba(232, 230, 230, 0.75);
+	height: 110px;
+	overflow: hidden;
+}
+
+.memo-header {
+	height: 30px;
+	background: #bf1c13;
+}
+
+.title {
+	margin: 5px 10px;
+	height: 30px;
+	color: #fffafa;
+	font-size: 20px;
+	line-height: 22px;
+	letter-spacing: 0.05em;
+	float: left;
+}
+
+.category {
+	margin: 3px;
+	padding: 2px 7px;
+	color: #fff;
+	background: #e94d46;
+	float: left;
+}
+
+.update {
+	margin: 2px 5px;
+	float: right;
+}
+
+.delete {
+	margin: 2px 5px;
+	float: right;
+}
+
+.msg {
+	clear: both;
+	margin: 0 10px;
+	height: 50px;
+	font-size: 16px;
+}
+
+.posttime {
+	height: 20px;
+	text-align: right;
+	margin-right: 10px;
+}
+
+.add-memo {
+	width: 70px;
+	height: 70px;
+	margin: 20px auto;
+	border-radius: 35px;
+	font-size: 64px;
+	line-height: 70px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.add-memo a{
+	color:#bf1c13;
+}
+.m-20 {
+	margin: 20px 0;
 }
