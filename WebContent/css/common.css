@@ -80,6 +80,7 @@ a:hover{
 
 /* memo content */
 .page-title {
+	margin: 20px 0;
 	font-size: 36px;
 	font-weight: bold;
 	color: #bf1c13;
@@ -93,7 +94,7 @@ a:hover{
 
 .memo-header {
 	height: 30px;
-	background: #bf1c13;
+	background: #e42b22;
 }
 
 .title {
